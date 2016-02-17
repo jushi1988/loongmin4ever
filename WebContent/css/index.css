@@ -1,0 +1,8 @@
+.container {
+  width: 800px;
+  overflow: scroll;
+}
+.container img {
+  margin-bottom: 10px;
+  width: 100%;
+}

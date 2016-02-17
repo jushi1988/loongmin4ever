@@ -4,9 +4,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>风雨共济</title>
-<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<link type="text/css" href="css/index.css" rel="stylesheet" />
 </head>
 <body>
-风雨共济,笑看人生
+风雨共济，笑看人生
+<hr />
+图片延迟加载
+<center>
+<div class="container">
+	<img class="lazy" data-original="./images/eg/eg.jpg" width="770" height="570">
+	<img class="lazy" data-original="./images/eg/eg.jpg" width="770" height="570">
+	<img class="lazy" data-original="./images/eg/eg.jpg" width="770" height="570">
+	<img class="lazy" data-original="./images/eg/eg.jpg" width="770" height="570">
+	<img class="lazy" data-original="./images/eg/eg.jpg" width="770" height="570">
+	<img class="lazy" data-original="./images/eg/eg.jpg" width="770" height="570">
+	<img class="lazy" data-original="./images/eg/eg.jpg" width="770" height="570">
+	<img class="lazy" data-original="./images/eg/eg.jpg" width="770" height="570">
+</div>
+</center>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+$(function () {
+    $("img.lazy").lazyload({
+    	effect : "fadeIn",
+    	event: "sporty"
+    });
+});
+$(window).bind("load", function () {
+    var timeout = setTimeout(function () {
+        $("img.lazy").trigger("sporty");
+    }, 2000);
+});
+</script>
 </body>
 </html>
