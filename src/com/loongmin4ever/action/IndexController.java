@@ -6,6 +6,7 @@ import com.jfinal.aop.Before;
 import com.loongmin4ever.entity.User;
 import com.loongmin4ever.entity.Whisper;
 import com.loongmin4ever.interceptor.UserInterceptor;
+import com.loongmin4ever.util.SqlUtil;
 
 public class IndexController extends BaseController {
 
@@ -15,7 +16,7 @@ public class IndexController extends BaseController {
 	}
 	
 	public void getWhisperList() {
-		List<Whisper> list = Whisper.dao.find("select w.*, u.user_name, u.login_name from tb_whisper w left join tb_user u on w.user_id = u.id order by w.create_time desc");
+		List<Whisper> list = Whisper.dao.find(SqlUtil.GETLATESTWHISPERS);
 		this.renderJson(list);
 	}
 	
